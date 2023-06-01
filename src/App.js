@@ -4,16 +4,25 @@ import PetDetailsPage from './pages/detail';
 import PetDetailsNotFound from './pages/petDetailsNotFound';
 import Root from './components/root';
 
-// Add react-router-dom imports
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from 'react-router-dom';
 
 // create router with JSX Route elements
-const appRouter = "REPLACE ME";
+const appRouter = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<Root />}>
+      <Route index element={<HomePage />} />
+      {/* More routes here */}
+    </Route>
+  )
+);
 
 function App() {
-  return (
-    // replace below with a Router Provider
-    <p>REPLACE ME</p>
-  );
+  return <RouterProvider router={appRouter} />;
 }
 
 export default App;
